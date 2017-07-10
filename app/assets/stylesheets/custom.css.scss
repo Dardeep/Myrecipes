@@ -8,8 +8,7 @@ $navbar-default-bg: #3E363F;
 }
 
 .jumbotron{
-  background-image: asset-url('cover_image.png');
-  background: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), url('cover_image.png');
+  background-image: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), asset-url('cover_image.png');
   background-size: cover;
   height: 300px;
 }
