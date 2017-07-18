@@ -10,8 +10,10 @@
       </div>
         <div class="col-md-8 well">
         <h4><%= recipe.name %></h4>
-        <h4><%= recipe.description %></h4>
-        <small><%= time_ago_in_words(recipe.created_at)%></small>
+        <p><%= truncate(recipe.description, length:150) %></p>
+        <p>
+        <span class = "quiet"> </span><small> Created:<%= time_ago_in_words(recipe.created_at)%> ago </small></span>
+        </p>
       </div>
     </div>
 <% end %>
