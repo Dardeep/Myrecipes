@@ -7,4 +7,43 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
   end
+  
+  def new
+    @recipe = Recipe.new
+  end
+  
+  def create
+    @recipe = Recipe.new(recipe_params)
+    @recipe.chef = Chef.first
+     if @recipe.save
+       flash[:success] = "Recipe was created successfully"
+       redirect_to recipe_path(@recipe)
+      else
+        render 'new'
+      end
+  end
+  
+  private
+    def recipe_params
+      params.require(:recipe).permit(:name, :description)
+    end
+    
+  
 end
+
+#def create
+#    @todo = Todo.new(todo_params)
+ #   if @todo.save
+  #    flash[:notice] = "ToDo was created successfully"
+   #   redirect_to todo_path(@todo)
+    #else 
+     # render 'new'
+    #end
+  #end
+  
+  
+  #  private
+  #def todo_params
+   # params.require(:todo).permit(:name, :description)
+  #end
+  
