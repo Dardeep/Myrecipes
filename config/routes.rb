@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   #get '/recipes/:id' , to: 'recipes#show' , as: 'recipe'
   #post '/recipes', to: 'recipes#create'
 
+  get '/signup', to: 'chefs#new'
+  resources :chefs, except: [:new]
+  #The line above will give all the routes except for the new route
+  #since we want to use /signup route instead of /chefs/new
 end
