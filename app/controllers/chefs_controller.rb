@@ -1,5 +1,10 @@
 class ChefsController < ApplicationController
   
+
+  def index
+    @chefs = Chef.paginate(page: params[:page], per_page: 5)
+  end
+  
   def new
     @chef = Chef.new
   end
