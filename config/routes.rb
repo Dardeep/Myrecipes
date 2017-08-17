@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   resources :chefs, except: [:new]
   #The line above will give all the routes except for the new route
   #since we want to use /signup route instead of /chefs/new
+  
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 end
