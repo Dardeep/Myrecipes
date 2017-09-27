@@ -35,6 +35,7 @@ class RecipesTest < ActionDispatch::IntegrationTest
     end
       
     test "create new valid recipe" do
+      sign_in_as(@chef, "password")
       get new_recipe_path
       assert_template 'recipes/new'
       name_of_recipe = "Chicken saute"
@@ -46,7 +47,6 @@ class RecipesTest < ActionDispatch::IntegrationTest
       assert_match name_of_recipe.capitalize, response.body
       assert_match description_of_recipe, response.body
     end
-    
     test "reject invalid recipe submissions" do
       get new_recipe_path
       assert_template 'recipes/new'
